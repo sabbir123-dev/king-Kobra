@@ -64,44 +64,44 @@
             </div>
         </div>
 
-      
-      <!-- Sign Up Form -->
-<div class="page" id="signupPage">
-    <div class="form-container">
-        <h2 class="form-title" id="signupTitle">Create Account</h2>
-        <form id="signupForm">
-            <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" placeholder="Enter your full name" required>
+
+        <!-- Sign Up Form -->
+        <div class="page" id="signupPage">
+            <div class="form-container">
+                <h2 class="form-title" id="signupTitle">Create Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userId">ID</label>
+                        <input type="text" id="userId" placeholder="Enter your ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="showRolePage()">Back</button>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </form>
+                <!-- Add this section for existing users -->
+                <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="margin-bottom: 15px;">Already have an account?</p>
+                    <button class="btn btn-login" onclick="showLogin()">Login</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="userId">ID</label>
-                <input type="text" id="userId" placeholder="Enter your ID" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Create a password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
-            </div>
-            <div class="form-actions">
-                <button type="button" class="btn btn-secondary" onclick="showRolePage()">Back</button>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-            </div>
-        </form>
-        <!-- Add this section for existing users -->
-        <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
-            <p style="margin-bottom: 15px;">Already have an account?</p>
-            <button class="btn btn-login" onclick="showLogin()">Login</button>
         </div>
-    </div>
-</div>
 
         <!-- Login Form -->
         <div class="page" id="loginPage">
@@ -145,19 +145,19 @@
             </div>
         </div>
         <!-- Secret Code Verification Modal -->
-<div class="modal" id="secretCodeModal">
-    <div class="modal-content">
-        <h3>Teacher Verification</h3>
-        <p>Please enter the secret code to verify your faculty status</p>
-        <div class="form-group">
-            <input type="password" id="teacherSecretCode" placeholder="Enter secret code">
+        <div class="modal" id="secretCodeModal">
+            <div class="modal-content">
+                <h3>Teacher Verification</h3>
+                <p>Please enter the secret code to verify your faculty status</p>
+                <div class="form-group">
+                    <input type="password" id="teacherSecretCode" placeholder="Enter secret code">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" onclick="closeSecretCodeModal()">Cancel</button>
+                    <button class="btn btn-primary" onclick="verifyTeacherCode()">Verify</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-actions">
-            <button class="btn btn-secondary" onclick="closeSecretCodeModal()">Cancel</button>
-            <button class="btn btn-primary" onclick="verifyTeacherCode()">Verify</button>
-        </div>
-    </div>
-</div>
 
         <!-- Teacher Dashboard -->
         <div class="page" id="teacherDashboard">
@@ -189,7 +189,7 @@
                 <form id="applicationForm">
                     <div class="form-group">
                         <label for="level">Level</label>
-                        <select id="level" required>
+                        <select id="level" required onchange="handleLevelChange()">
                             <option value="">Select Level</option>
                             <option value="CSE">CSE</option>
                             <option value="EEE">EEE</option>
@@ -209,15 +209,45 @@
                     </div>
                     <div class="form-group">
                         <label for="semester">Semester</label>
-                        <input type="text" id="semester" placeholder="Enter your semester" required>
+                        <select id="semester" required onchange="updateCourseOptions()">
+                            <option value="">Select Semester</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+                            <option value="9">Semester 9</option>
+                            <option value="10">Semester 10</option>
+                            <option value="11">Semester 11</option>
+                            <option value="12">Semester 12</option>
+                        </select>
+
                     </div>
                     <div class="form-group">
                         <label for="section">Section</label>
-                        <input type="text" id="section" placeholder="Enter your section" required>
+                        <select id="section" required>
+                            <option value="">Select Section</option>
+                            <option value="A">Section A</option>
+                            <option value="B">Section B</option>
+                            <option value="C">Section C</option>
+                            <option value="D">Section D</option>
+                            <option value="E">Section E</option>
+                            <option value="F">Section F</option>
+                            <option value="G">Section G</option>
+                            <option value="H">Section H</option>
+                            <option value="I">Section I</option>
+                            <option value="J">Section J</option>
+                            <option value="K">Section K</option>
+                        </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="courseNameGroup">
                         <label for="courseName">Course Name</label>
-                        <input type="text" id="courseName" placeholder="Enter course name" required>
+                        <select id="courseName" required>
+                            <option value="">Please select a semester first</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="dueAmount">Due Amount</label>
